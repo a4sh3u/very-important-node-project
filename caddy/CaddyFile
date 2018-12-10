@@ -1,0 +1,9 @@
+:3000 {
+    proxy / vinp:3000 {
+            transparent
+            websocket
+        }
+
+    errors stderr
+    tls off
+}

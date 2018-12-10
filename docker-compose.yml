@@ -1,0 +1,18 @@
+version: '2.1'
+
+services:
+  node_app:
+    image: a4sh3u/vinp:latest
+    container_name: vinp
+
+  caddy:
+      image: stefanprodan/caddy
+      container_name: caddy
+      ports:
+        - "3000:3000"
+      volumes:
+        - ./caddy/:/etc/caddy/
+      environment:
+        - ADMIN_USER=${ADMIN_USER:-admin}
+        - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      restart: unless-stopped
